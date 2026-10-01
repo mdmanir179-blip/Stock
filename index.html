@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WH stock Tracker - Warehouse Inventory, POD & PO Management</title>
+    <meta name="description" content="Warehouse inventory, POD stock availability, sales metrics, and open purchase order tracking platform with instant Excel upload and PDF export." />
+    <meta property="og:title" content="WH stock Tracker" />
+    <meta property="og:description" content="Warehouse inventory, POD stock availability, sales metrics, and open purchase order tracking platform with instant Excel upload and PDF export." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      // Theme initializer
+      (function() {
+        try {
+          var stored = localStorage.getItem('wh_theme');
+          var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
+        } catch(e) {}
+      })();
+
+      // Safe guard against libraries attempting to overwrite read-only window.fetch getter
+      try {
+        const _nativeFetch = window.fetch;
+        let _activeFetch = _nativeFetch;
+        Object.defineProperty(window, 'fetch', {
+          get() {
+            return _activeFetch || _nativeFetch;
+          },
+          set(fn) {
+            _activeFetch = fn;
+          },
+          configurable: true,
+          enumerable: true,
+        });
+      } catch (err) {
+        // Continue if environment restricts descriptor changes
+      }
+    </script>
+  </head>
+  <body class="bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 antialiased selection:bg-amber-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

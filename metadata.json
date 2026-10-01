@@ -1,0 +1,6 @@
+{
+  "name": "WH stock Tracker",
+  "description": "Warehouse inventory, POD stock availability, sales metrics, and open purchase order tracking platform with instant Excel upload and PDF export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
